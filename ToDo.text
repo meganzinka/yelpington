@@ -1,0 +1,26 @@
+Home Page: 
+- change leaflet 
+- Make pins for each restaurant 
+- styling 
+
+Visit Restaurant: 
+- Click on pin & move to restaurant page 
+- Make the list not disappear?
+-> How do you make it actually load that page? 
+-> Does it matter that I changed it to an <a href= > tag? 
+
+Show Restaurant: 
+- Do styling for restaurant component 
+(Hint: To access the current page's path -- to get from http://localhost:3000/restaurant/joes-diner to joes-diner -- review the URLs and JavaScript lesson.
+ Click here for a more detailed hint
+let name = document.location.path.split('/')[2]
+(split('/') will break the path down into an array of its parts => ['', 'restaurant', 'joes-diner']))
+
+Show Restaurant Map: 
+- Given id of a restaurant (joes-diner), they see leaflet map centered at the restaurant's location
+>>>>on restaurant page? 
+
+Extra: 
+- make hover over pin make the words change and vice versa
+- make an add note component? 
+- Put the places 

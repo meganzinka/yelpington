@@ -7,18 +7,19 @@ const Restaurant = (props) => {
   const [phoneNumber, setPhoneNumber] = useState();
   const [hours, setHours] = useState();
   const [notes, setNotes] = useState();
+  const [restaurantId, setRestaurantId] = useState(); 
 
   useEffect(() => {
-    if (!notes) {
+    if (!notes || restaurantId !== props.match.params.restaurantid) {
       fetch(`/api/${props.match.params.restaurantid}`)
         .then((res) => res.json())
         .then((restaurantObj) => {
-          console.log(restaurantObj);
           setName(restaurantObj.name);
           setAddress(restaurantObj.address);
           setPhoneNumber(restaurantObj["phone number"]);
           setHours(restaurantObj.hours);
           setNotes(restaurantObj.notes);
+          setRestaurantId(props.match.params.restaurantid)
         });
     }
   });

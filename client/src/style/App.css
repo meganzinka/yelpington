@@ -28,7 +28,18 @@
   color: #61dafb;
 }
 
-#mapid { height: 180px; }
+#mapid {
+  height: 180px;
+  display: flex;
+}
+
+#map-container {
+  float: left;
+}
+
+#restaurant {
+  float: right
+}
 
 @keyframes App-logo-spin {
   from {

@@ -20,6 +20,9 @@ app.get("/api/:restaurantid", (request, response)=> {
     response.sendFile(path.resolve(`./api/${id}.json`))
 })
 
+app.get("api/location", (request, response) => {
+    response.sendFile(path.resolve("./api/location.json"))
+})
 app.get("*", (request, response) => {
     response.sendFile(path.resolve('./client/public/index.html'))
 })
