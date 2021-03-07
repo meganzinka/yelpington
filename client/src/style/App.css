@@ -28,17 +28,25 @@
   color: #61dafb;
 }
 
+#app-container {
+  display:grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
 #mapid {
   height: 180px;
   display: flex;
 }
 
+#nav-bar-container {
+  grid-column: 1;
+}
 #map-container {
-  float: left;
+  grid-column: 2;
 }
 
-#restaurant {
-  float: right
+#restaurant-container {
+  grid-column: 3;
+
 }
 
 @keyframes App-logo-spin {

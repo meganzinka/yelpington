@@ -26,12 +26,14 @@ const Restaurant = (props) => {
 
   return (
     <div>
-      <h1>Restuarant Page</h1>
       <h1>{name}</h1>
-      <h1>{address}</h1>
-      <h1>{phoneNumber}</h1>
-      <h1>{hours}</h1>
-      <h1>{notes}</h1>
+      <h3>{address}</h3>
+      <h3>{phoneNumber}</h3>
+      <h4>{hours}</h4>
+      <ul>{notes.map((note) => {
+        return (
+        <li>{note}</li> )
+      })}</ul>
     </div>
   );
 };
