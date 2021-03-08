@@ -14,29 +14,36 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // import {Restaurant} from "/Restaurant"
 
-function Map(props) {
-  const [showLink, setShowLink] = useState(true);
+function Map() {
   const [data, setData] = useState();
+  const [center, setCenter] = useState([42.05217724328756, -70.18468681413914]);
 
+  //I RAN OUT OF TIME BUT MY GOAL ON RE-SUBMISSION IS TO FIGURE OUT HOW TO GET THE MAP TO RE-CENTER & TO PUT ALL FETCHES ON APP.JS AND PASS THE DATA AS PROPS
+  //Any suggestions that you have
+  function centerPin() {
+    console.log(data);
+    console.log(data.obj);
+    // console.log(document.)
+    // console.log(data.obj[id])
+    // setCenter([[data.obj.lat, data.obj.long]])
+  }
 
   useEffect(() => {
-    console.log(showLink)
-    if (showLink) {
-      fetch("/api/location")
+    if (!data) {
+      fetch(`/api/location`)
         .then((res) => res.json())
-        .then((list) => {
-          setData(list);
-          console.log(list);
+        .then((restaurantObj) => {
+          setData(restaurantObj);
+          console.log(restaurantObj);
           console.log(data);
         });
     }
-    setShowLink(false);
   });
 
-  return (
-    <div id="map-container">
+  if (data) {
+    return (
       <MapContainer
-        center={[42.05217724328756, -70.18468681413914]}
+        center={center}
         //maybe dropped pin?
         zoom={15}
         // scrollWheelZoom={false}
@@ -51,16 +58,21 @@ function Map(props) {
         />
         {data.map((obj) => {
           return (
-            <Marker position={[obj.lat, obj.long]}>
-              <Popup>
-                <Link to={`/${obj.name}`}>{obj.name}</Link>
-              </Popup>
-            </Marker>
+            <div id="map-container">
+              <Marker position={[obj.lat, obj.long]}>
+                <Popup>
+                  <Link to={`/${obj.id}`} onClick={centerPin}>
+                    {obj.name}
+                  </Link>
+                </Popup>
+              </Marker>
+            </div>
           );
         })}
+        <MyComponent center={center} />
       </MapContainer>
-    </div>
-  );
+    );
+  } else return null;
 }
 
 export default Map;

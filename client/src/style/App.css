@@ -28,25 +28,35 @@
   color: #61dafb;
 }
 
+/*create a grid for the entire page*/
 #app-container {
   display:grid;
   grid-template-columns: 1fr 2fr 1fr;
 }
+/*specify map dimensions*/
 #mapid {
   height: 180px;
   display: flex;
 }
 
+/*list of restaurants in column 1*/
 #nav-bar-container {
   grid-column: 1;
 }
+/*map in middle*/
 #map-container {
   grid-column: 2;
 }
-
+/*restaurant info to right*/
 #restaurant-container {
   grid-column: 3;
 
+}
+
+header {
+  text-align: center;
+  background-color: #C0D9D9;
+  color: #2F4F4F	
 }
 
 @keyframes App-logo-spin {
@@ -56,4 +66,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body {
+  color: #2F4F4F;
+  font-family : Avenir; 
 }
