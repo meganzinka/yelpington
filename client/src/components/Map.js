@@ -14,54 +14,33 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // import {Restaurant} from "/Restaurant"
 
-function Map() {
-  const [data, setData] = useState();
+function Map(props) {
   const [center, setCenter] = useState([42.05217724328756, -70.18468681413914]);
-
-  //I RAN OUT OF TIME BUT MY GOAL ON RE-SUBMISSION IS TO FIGURE OUT HOW TO GET THE MAP TO RE-CENTER & TO PUT ALL FETCHES ON APP.JS AND PASS THE DATA AS PROPS
-  //Any suggestions that you have
-  function centerPin() {
-    console.log(data);
-    console.log(data.obj);
-    // console.log(document.)
-    // console.log(data.obj[id])
-    // setCenter([[data.obj.lat, data.obj.long]])
-  }
-
-  useEffect(() => {
-    if (!data) {
-      fetch(`/api/location`)
-        .then((res) => res.json())
-        .then((restaurantObj) => {
-          setData(restaurantObj);
-          console.log(restaurantObj);
-          console.log(data);
-        });
-    }
-  });
-
-  if (data) {
+  if (props.data) {
     return (
       <MapContainer
         center={center}
-        //maybe dropped pin?
         zoom={15}
-        // scrollWheelZoom={false}
-        // doubleClickZoom={false}
-        // zoomControl={false}
-        // touchZoom={false}
+        scrollWheelZoom={false}
+        doubleClickZoom={false}
+        zoomControl={false}
+        touchZoom={false}
         style={{ height: "600px", width: "600px" }}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution="Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
         />
-        {data.map((obj) => {
+        {props.data.map((obj, index) => {
           return (
             <div id="map-container">
               <Marker position={[obj.lat, obj.long]}>
                 <Popup>
-                  <Link to={`/${obj.id}`} onClick={centerPin}>
+                  <Link
+                    key={index}
+                    to={`/${obj.id}`}
+                    // onClick={centerPin}
+                  >
                     {obj.name}
                   </Link>
                 </Popup>
@@ -69,7 +48,9 @@ function Map() {
             </div>
           );
         })}
-        <MyComponent center={center} />
+        {props.newCenter ?  (
+          <MyComponent newZoom = {props.newZoom} newCenter = {props.newCenter} />
+        ) : null}
       </MapContainer>
     );
   } else return null;
