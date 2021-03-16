@@ -2,12 +2,15 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 const Restaurant = (props) => {
+  //restaurant display info 
   const [name, setName] = useState();
   const [address, setAddress] = useState();
   const [phoneNumber, setPhoneNumber] = useState();
   const [hours, setHours] = useState();
   const [notes, setNotes] = useState();
+  //restaurant ID's to create links 
   const [restaurantId, setRestaurantId] = useState();
+  //create an array to put comments upon fetch 
   const [comments, setComments] = useState([]);
 
   //function to turn date into
@@ -55,10 +58,12 @@ const Restaurant = (props) => {
       //fetch to access comments
       fetch(`/show/${props.match.params.restaurantid}`)
         .then((res) => res.json())
+        //push each comment into the array 
         .then((comments) => {
           comments.forEach((comment) => {
             array.push(comment);
           });
+          //set the comments to be this array of comments 
           setComments(array);
         });
     }

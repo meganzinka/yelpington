@@ -42,9 +42,11 @@ function App() {
     }
   });
 
+  //function that zooms back out and re-centers the map if the user clicks the header
   function reloadHomePage (event) {
     setNewCenter([42.05217724328756, -70.18468681413914])
     setNewZoom(15);
+    //set this to a falsy value to hide the comment section 
     setCurrentRestaurant()
   }
 
@@ -55,17 +57,20 @@ function App() {
       <header id ="main-header">
         <Link  to={"/"} onClick = {reloadHomePage}><h1>Yelpington Provincetown</h1></Link>
       </header>
+
       <div id="app-container">
         <div id="nav-bar-container">
         <Route
             id="nav-bar"
             render = {props => <NavBar data = {data} restaurantList={restaurantList} match = {props.match}/>} />
         </div>
+        {/* only want to return map component if data has been fetched */}
         <div id="mapid">
           { data ? (<Route
             render = {props => <Map restaurantList={restaurantList} newZoom = {newZoom} newCenter = {newCenter} match={props.match} path="/:restaurantid" data = {data} />}
           />) : null }
         </div>
+        {/* only want to return the comment component if a restaurant is clicked  */}
         {currentRestaurant ? (<Route render = {props => <AddComment match = {props.match}/>} />) : null }
         <div id="restaurant-container">
           <Route

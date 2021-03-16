@@ -47,7 +47,7 @@ header Link {
 }
 
 body {
-  color: #2F4F4F;
+  color: #1d3557;
   font-family : Avenir; 
   margin: 5px;
 }
@@ -105,5 +105,5 @@ h4 {
   font-size: larger;
   text-decoration: none;
   display: flex;
-  color: #2F4F4F;
+  color: #1d3557;
 }

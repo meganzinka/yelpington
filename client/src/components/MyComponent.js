@@ -2,11 +2,10 @@
 import L from "leaflet";
 import { useMap } from "react-leaflet";
 
-//this is what communicates zoom function as map container couldn't talk to app.js
-
+//function/component to adjust the center as different restaurants were clicked 
 function MyComponent(props) {
-  console.log("inside MyComponent", props.center)
   const map = useMap();
+  //newCenter & newZoom have been sent in as props from Restaurant 
   map.setView(props.newCenter, props.newZoom);
   return null;
 }

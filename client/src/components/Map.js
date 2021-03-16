@@ -1,18 +1,13 @@
 import {
   MapContainer,
   TileLayer,
-  Polygon,
   Marker,
   Popup,
-  Polyline,
 } from "react-leaflet";
-// import borderData from "../data/border";
-// import leafletPip from "leaflet-pip";
-// import L, { map } from "leaflet";
+
 import MyComponent from "./MyComponent.js";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-// import {Restaurant} from "/Restaurant"
 
 function Map(props) {
   const [center, setCenter] = useState([42.05217724328756, -70.18468681413914]);
@@ -21,8 +16,6 @@ function Map(props) {
       <MapContainer
         center={center}
         zoom={15}
-        scrollWheelZoom={false}
-        doubleClickZoom={false}
         zoomControl={false}
         touchZoom={false}
         style={{ height: "600px", width: "600px" }}
@@ -31,16 +24,19 @@ function Map(props) {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution="Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
         />
+        {/* data is an array of restaurant objects with each restaurant's name, ID, lat/long. map through each one */}
         {props.data.map((obj, index) => {
           return (
             <div id="map-container">
+              {/* Create a marker at the restaurant's location  */}
               <Marker position={[obj.lat, obj.long]}>
+                {/* Create a popup that links to the restaurant's page */}
                 <Popup>
                   <Link
                     key={index}
                     to={`/${obj.id}`}
-                    // onClick={centerPin}
                   >
+                    {/* label each link with the restaurant's name */}
                     {obj.name}
                   </Link>
                 </Popup>
@@ -48,6 +44,7 @@ function Map(props) {
             </div>
           );
         })}
+        {/* if a new center has been set on the Restaurant page, send that into My Component to change zoom and center  */}
         {props.newCenter ?  (
           <MyComponent newZoom = {props.newZoom} newCenter = {props.newCenter} />
         ) : null}
