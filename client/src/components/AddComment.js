@@ -2,11 +2,12 @@ import React from "react";
 
 //add comment 
 const AddComment = (props) => {
+  console.log(props.currentRestaurant)
   return (
     <div id="add-comment">
       <form
         method="POST"
-        action={`/comment/${props.match.params.restaurantid}`} >
+        action={`/comment/${props.currentRestaurant}`} >
         <label>Leave a Comment!</label>
         <br></br>
         <input name="name" placeholder="What's your name?" />

@@ -68,7 +68,7 @@ const Restaurant = (props) => {
         });
     }
   });
-
+  // console.log(props.match.params.restaurantid)
   //if the fetch has happened, update the page
   if (notes) {
     return (

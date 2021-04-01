@@ -60,9 +60,11 @@ function App() {
 
       <div id="app-container">
         <div id="nav-bar-container">
-        <Route
+        {/* <Route
             id="nav-bar"
-            render = {props => <NavBar data = {data} restaurantList={restaurantList} match = {props.match}/>} />
+            render = {props =>  */}
+            <NavBar data = {data} restaurantList={restaurantList}/>
+            {/* } /> */}
         </div>
         {/* only want to return map component if data has been fetched */}
         <div id="mapid">
@@ -71,7 +73,7 @@ function App() {
           />) : null }
         </div>
         {/* only want to return the comment component if a restaurant is clicked  */}
-        {currentRestaurant ? (<Route render = {props => <AddComment match = {props.match}/>} />) : null }
+        {currentRestaurant ? (<Route render = {props => <AddComment currentRestaurant = {currentRestaurant}/>} />) : null }
         <div id="restaurant-container">
           <Route
             id="restaurant"
