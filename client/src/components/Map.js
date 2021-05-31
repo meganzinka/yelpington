@@ -4,9 +4,8 @@ import {
   Marker,
   Popup,
 } from "react-leaflet";
-
+import {useState} from "react"
 import MyComponent from "./MyComponent.js";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Map(props) {
@@ -21,19 +20,19 @@ function Map(props) {
         style={{ height: "600px", width: "600px" }}
       >
         <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution="Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
+      url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
+      attribution='Tiles &copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+          
         />
-        {/* data is an array of restaurant objects with each restaurant's name, ID, lat/long. map through each one */}
         {props.data.map((obj, index) => {
           return (
-            <div id="map-container">
+            <div id="map-container" key={index}>
               {/* Create a marker at the restaurant's location  */}
               <Marker position={[obj.lat, obj.long]}>
                 {/* Create a popup that links to the restaurant's page */}
                 <Popup>
                   <Link
-                    key={index}
+                    key = {index}
                     to={`/${obj.id}`}
                   >
                     {/* label each link with the restaurant's name */}

@@ -1,5 +1,3 @@
-// import React from "react";
-import L from "leaflet";
 import { useMap } from "react-leaflet";
 
 //function/component to adjust the center as different restaurants were clicked 

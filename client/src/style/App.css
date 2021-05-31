@@ -2,61 +2,88 @@
 /*create a grid for the entire page*/
 #app-container {
   display:grid;
-  grid-template-columns: 1fr 2fr 0.15fr 2fr;
-  grid-template-rows: 600px;
-
-}
-/*specify map dimensions*/
-#mapid {
-  height:180px;
-  display: flex;
-  grid-column: 2; 
+  grid-template-columns: 0.7fr 600px 2fr;
+  grid-template-rows: 600px auto; 
 }
 
 /*list of restaurants in column 1*/
 #nav-bar-container {
   grid-column: 1;
+  padding: 0 1vh 1vh 1vh; 
+  margin: 0 1vh 1vh 1vh;
+  text-align: center;
+
 }
 /*map in middle*/
 #map-container {
   grid-column: 2;
-  margin: 5px;
+  grid-row: 1; 
 }
-#add-comment {
-  margin-top: 10px;
-  grid-column: 2;
 
-}
 /*restaurant info to right*/
 #restaurant-container {
-  grid-column: 4;
+  grid-column: 3;
   grid-row:1;
+}
+
+html {
+  box-sizing:border-box; 
+
+}
+body {
+  color: #1d3557;
+  font-family : Avenir; 
+  background-color: #F2F8FD; 
+  box-sizing:border-box; 
+}
+
+
+/*-------------Header---------------*/
+#main-header {
+  text-align: center;
+  background: hsla(22, 75%, 68%, 1);
+
+  background: linear-gradient(135deg, hsla(22, 75%, 68%, 1) 0%, hsla(2, 82%, 67%, 1) 100%);
+  
+  background: -moz-linear-gradient(135deg, hsla(22, 75%, 68%, 1) 0%, hsla(2, 82%, 67%, 1) 100%);
+  
+  background: -webkit-linear-gradient(135deg, hsla(22, 75%, 68%, 1) 0%, hsla(2, 82%, 67%, 1) 100%);
+  
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#EB9D70", endColorstr="#F06A66", GradientType=1 );
+  color:white; 
+  padding: 20px;
+  margin-bottom: 5vh; 
+  text-decoration: none;
+  font-size: 5vh; 
 
 }
 
-#main-header {
-  text-align: center;
-  background-color: #C0D9D9;
-  color: #2F4F4F;
-  padding: 10px;
-  margin-bottom: 5px; 
-  text-decoration: none;
-} 
+#home-icon { 
+  float: left; 
+  height: 5vh;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  border-radius: 10px; 
+}
+
+#home-icon-container { 
+  background-color: white; 
+  border-radius: 10px; 
+}
+
 header Link {
   text-decoration: none;
 }
 
-body {
-  color: #1d3557;
-  font-family : Avenir; 
-  margin: 5px;
-}
+/*-----------Restuarant Section -------------*/
 
-h1 {
-  margin: 0;
-  text-decoration: none;
+.restaurant-component {
+  padding: 2vh 2vh 2vh 2vh; 
+  margin: 0 2vh 2vh 2vh;
+  background-color: white; 
+  border-radius: 10px;
 }
-
+ 
 /*--------------Comment portion----------------*/
 textarea {
   font-family: Avenir;
@@ -99,11 +126,48 @@ label {
 h4 {
   margin:2px;
 }
-
-.nav-item { 
-  padding: 5px; 
-  font-size: larger;
+a {
   text-decoration: none;
-  display: flex;
   color: #1d3557;
+  text-align: center;
+
+}
+.nav-item { 
+  text-decoration: none;
+  color: #1d3557;
+  /* box-shadow: 15px 20px 40px 0.5px rgb(0, 0, 0, 0.1); */
+  width: 85%; 
+  font-size: larger;
+  padding: 1vh;
+  margin: 2vh; 
+  box-sizing:border-box; 
+  border-radius: 10px; 
+  text-align: center;
+}
+#white {
+background-color: white; 
+}
+
+#selected {
+  color: white; 
+  background: hsla(22, 75%, 68%, 1);
+
+  background: linear-gradient(135deg, hsla(22, 75%, 68%, 1) 0%, hsla(2, 82%, 67%, 1) 100%);
+  
+  background: -moz-linear-gradient(135deg, hsla(22, 75%, 68%, 1) 0%, hsla(2, 82%, 67%, 1) 100%);
+  
+  background: -webkit-linear-gradient(135deg, hsla(22, 75%, 68%, 1) 0%, hsla(2, 82%, 67%, 1) 100%);
+  
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#EB9D70", endColorstr="#F06A66", GradientType=1 ); 
+}
+.nav-item:active {
+  background-color: black; 
+}
+
+
+/*----------------Map ------------------------*/ 
+/*specify map dimensions*/
+#mapid {
+  height:180px;
+  display: flex;
 }

@@ -2,48 +2,117 @@
     {
         "id": "canteen",
         "name": "Canteen",
+        "address": "255 Commercial St.",
+        "phone number": "(508) 487-3800",
+        "hours": "8:00 AM - 11:00 PM",
+        "notes": [
+            "A modern New England summer shack and a gathering place in the center of Provincetown for the perfect summer meal.",
+            "serve fresh seafood, raw shellfish, specialty sandwiches and salads, housemade sausages and much more",
+            "Housemade desserts like banana beignets and lemon rosemary and lavender ice."
+        ],
         "lat": 42.05042671221635,
         "long": -70.188190257671
     },
     {
         "id": "fanizzi's-restaurant",
-        "name":  "Fanizzi's", 
+        "name": "Fanizzi's",
+        "address": "589 Commercial St.",
+        "phone number": "(508) 487-1964",
+        "hours": "11:30 AM - 9:00 PM",
+        "notes": [
+            "Excellent seafood, oceanside views, and great service at a fair price",
+            "Top Recommendations: Fried Mac and Cheese, Pasta Fanizzi, and Cod Picatta",
+            "Offers casual waterfront dining."
+        ],
         "lat": 42.058460314382145,
         "long": -70.17417038026709
     },
     {
         "id": "far-land-provisions",
-        "name": "Far Land Provisions", 
+        "name": "Far Land Provisions",
+        "address": "150 Bradford St.",
+        "phone number": "(508) 487-0045",
+        "hours": "8:00 AM - 5:00 PM",
+        "notes": [
+            "American, Cafe, Vegetarian Friendly, Vegan Options, Gluten Free Options",
+            "Massachusetts favorite corner store & deli featuring on-site bakery, prepared foods, and made to order breakfast and lunch sandwiches",
+            "Providing full-service catering for weddings, special events, and cocktail parties.",
+            "Check out our seasonal outpost at Herring Cove Beach that features fresh and innovative offerings in a one of a kind beach setting"
+        ],
         "lat": 42.05495473426212,
         "long": -70.18481221545382
     },
     {
         "id": "jimmy's-hideaway",
         "name": "Jimmy's Hideaway",
+        "address": "179 Commercial St Unit 1",
+        "phone number": "508-487-1011",
+        "hours": "5:30 PM - 9:30 PM",
+        "notes": [
+            "For those that just want a small meal to go with their drinks, there is a tavern menu that includes spicy BBQ pork ribs, the HideAway burger and shrimp Florentine",
+            "Vegetarians also have several options at Jimmy's HideAway, including the tofu wings that are fried in a house hot sauce and served with Bleu cheese, or the tofu Napoleon that is marinated and grilled with asparagus, Crimini mushrooms and gruyere cheese"
+        ],
         "lat": 42.04824061887845,
         "long": -70.18922535777045
     },
     {
         "id": "joon-bar-kitchen",
         "name": "Joon Bar",
+        "address": "133 Commercial St",
+        "phone number": "508-413-9336",
+        "hours": "4:00 PM - 10:00 PM",
+        "notes": [
+            "Elegant New American cuisine served with ingenious wine pairings from its enormous collection",
+            "Most dishes come in a small and large size, so your party can choose to dine tapas-style if it wishes - and it probably will, because almost everything on the menu is worth a try",
+            "The fried Spanish olives are a must, as are the baby octopus salad, duck confit flatbread and Wagyu beef sliders.",
+            "Open year-round"
+        ],
         "lat": 42.04592106054985,
         "long": -70.19162757312564
     },
     {
         "id": "lobster-pot",
         "name": "Lobster Pot",
+        "address": "321 Commercial St",
+        "phone number": "(508)-487-0842",
+        "hours": "4:00 PM - 11:00 PM",
+        "notes": [
+            "A Provincetown tradition to those visiting the Outer Cape, our two waterfront dining rooms provide the harbor view while our full menu, served all day, offers the finest & freshest in seafood, Portuguese specialties, steaks, poultry, vegetarian and light fare.",
+            "Cocktails served in the TOP of the Pot bar",
+            "Famous for our Bloody Mary's & Signature Drinks",
+            "Home of Tim's award winning Clam Chowder",
+            "ZAGAT Survey...Top Restaurants on Cape Cod."
+        ],
         "lat": 42.05217724328756,
         "long": -70.18468681413914
     },
     {
         "id": "the-landing-bistro-&-bar",
-        "name": "The Landing Bistro and Bar",
+        "name": "The Landing",
+        "address": "336 Commercial St.",
+        "phone number": "(508) 487-6424",
+        "hours": "6:00 PM - 10:00 PM",
+        "notes": [
+            "Pilgrim House offers herb-infused, creative cocktails showcasing herbs from our garden as well as a careful selection of fine wines and craft beer.",
+            "A food menu of small plates, appetizers and desserts feature Cape Cod's finest ingredients from local farms and other food producers created by our acclaimed Chef Lucio Garnica and team.",
+            "On the water",
+            "Pet friendly"
+        ],
         "lat": 42.05294297233715,
         "long": -70.18464385222951
     },
     {
         "id": "the-mews-restaurant-and-cafe",
         "name": "The Mews",
+        "address": "429 Commercial St.",
+        "phone number": " 508-487-1500",
+        "hours": "5:00 PM - 11:00 PM",
+        "notes": [
+            "Year in and year out, this year-round delight in Provincetown is a a dependable local's favorite.",
+            "Innovative, consistent New American menu.",
+            "Attentive staff in a beautiful dining room with sea views",
+            "Always difficult to get into so if you can't snag a reservation, try the bar (stocked with many brands of great vodka or the fun upstairs coffeehouse featuring open-mike nights."
+        ],
         "lat": 42.05538855691992,
         "long": -70.18066058924296
     }

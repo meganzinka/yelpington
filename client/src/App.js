@@ -1,11 +1,11 @@
 import "./style/App.css";
 // import Home from "./components/Home";
 import Restaurant from "./components/Restaurant";
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Map from "./components/Map";
 import { useEffect, useState } from "react";
-import AddComment from "./components/AddComment";
+import homeIcon from "./images/home.png"
 
 function App() {
   //create a list of all the restaurant's ID's
@@ -17,7 +17,8 @@ function App() {
   //variable to adjust zoom for individual restaurant vs. all restaurants 
   const [newZoom, setNewZoom] = useState()
   //variable to see if a restaurant on screen or not - used to show/hide comment section
-  const [currentRestaurant, setCurrentRestaurant] = useState() 
+  const [currentRestaurant, setCurrentRestaurant] = useState()
+
 
   //fetch the list if the length of the list is 0
   useEffect(() => {
@@ -55,30 +56,23 @@ function App() {
   return (
     <div>
       <header id ="main-header">
-        <Link  to={"/"} onClick = {reloadHomePage}><h1>Yelpington Provincetown</h1></Link>
+        <Link  to={"/"} onClick = {reloadHomePage}><div id = "home-icon-container" ><img id = "home-icon" src ={homeIcon} alt ="house" ></img></div></Link>Yelpington Provincetown
       </header>
 
       <div id="app-container">
         <div id="nav-bar-container">
-        {/* <Route
-            id="nav-bar"
-            render = {props =>  */}
-            <NavBar data = {data} restaurantList={restaurantList}/>
-            {/* } /> */}
+            <NavBar data = {data} restaurantList={restaurantList} currentRestaurant = {currentRestaurant} />
         </div>
-        {/* only want to return map component if data has been fetched */}
         <div id="mapid">
           { data ? (<Route
             render = {props => <Map restaurantList={restaurantList} newZoom = {newZoom} newCenter = {newCenter} match={props.match} path="/:restaurantid" data = {data} />}
           />) : null }
         </div>
-        {/* only want to return the comment component if a restaurant is clicked  */}
-        {currentRestaurant ? (<Route render = {props => <AddComment currentRestaurant = {currentRestaurant}/>} />) : null }
         <div id="restaurant-container">
           <Route
             id="restaurant"
             path="/:restaurantid"
-            render = {props => <Restaurant setNewZoom = {setNewZoom} setNewCenter = {setNewCenter} setCurrentRestaurant = {setCurrentRestaurant} match = {props.match}/>} />
+            render = {props => <Restaurant data = {data} setNewZoom = {setNewZoom} setNewCenter = {setNewCenter} setCurrentRestaurant = {setCurrentRestaurant} currentRestaurant = {currentRestaurant} match = {props.match}/>} />
         </div>
       </div>
     </div>
