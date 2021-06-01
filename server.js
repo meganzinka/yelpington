@@ -5,10 +5,10 @@ const path = require('path')
 
 //server set-up
 const app = express()
-app.use(express.static(path.resolve("./client/public")));
+app.use(express.static(path.resolve(__dirname + "/build")));
 app.use(express.urlencoded({ extended: true }));
 
-//this has to match package.json on the client side proxy 
+//this has to match package.json on the side proxy 
 const port = process.env.PORT || 5000
 
 //path to access each individual restaurant's json file 
@@ -22,8 +22,14 @@ app.get("api/location", (request, response) => {
     response.sendFile(path.resolve("./api/location.json"))
 })
 
+const mongoAtlastUri = `mongodb+srv://today-megan-learned:today@Cluster0.rgtrz.mongodb.net/yelp?retryWrites=true&w=majority`;
+
+mongoose.connect(mongoAtlastUri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 //set-up for comment feature 
-mongoose.connect("mongodb://localhost:27017/Yelp");
+// mongoose.connect("mongodb://localhost:27017/Yelp");
     //four major components of new comment 
 const commentSchema = new mongoose.Schema({
     id: String,
@@ -70,7 +76,7 @@ commentsDB.on("error", console.error.bind(console, "connection error:"));
 
 //general path 
 app.get("*", (request, response) => {
-    response.sendFile(path.resolve('./client/public/index.html'))
+    response.sendFile(path.resolve(__dirname + '/build/index.html'))
 })
 
 app.listen(port, () => {

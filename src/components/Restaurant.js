@@ -77,6 +77,10 @@ const Restaurant = (props) => {
         setComments(array);
       });
   }, [props.match.params.restaurantid]);
+
+  function triggerPopup(event) {
+    setAddComment(true)
+  }
   // console.log(props.match.params.restaurantid)
   //if the fetch has happened, update the page
   if (notes) {
@@ -84,22 +88,30 @@ const Restaurant = (props) => {
       <div>
         <div className="restaurant-component">
           <div id="rest-name">{name}</div>
-          <div id="rest-addres">{address}</div>
+          <div id = "row-2">
+          <div id="rest-address">{address}</div>
           <div id="rest-phone">{phoneNumber}</div>
           <div id="rest-hours">{hours}</div>
+          </div>
         </div>
         <div className="restaurant-component">
-          <h4>Notes:</h4>
+          <div id = "notes-header">
+          Insider Tips:
+          </div>
+          <div id = "row-2">
           <ul>
             {notes.map((note, index) => {
               return <li key={index}>{note}</li>;
             })}
           </ul>
+          </div>
         </div>
 
         <div className="restaurant-component">
-          <h4>Comments:</h4>
-
+          <div id="comment-header">
+          <h4>Reviews:</h4>
+          </div>
+          <div id = "row-2">
           <ul>
             {comments.length > 0
               ? comments.map((obj, index) => {
@@ -116,13 +128,14 @@ const Restaurant = (props) => {
               : null}
           </ul>
           <button
-          // onClick = {triggerPopup}
+          onClick = {triggerPopup}
           >
-            Add a Comment!
+            Leave a Review
           </button>
+          </div>
         </div>
         {addComment ? (
-          <AddComment currentRestaurant={props.currentRestaurant} />
+          <AddComment setAddComment = {setAddComment} currentRestaurant = {props.currentRestaurant} name={name} />
         ) : null}
       </div>
     );

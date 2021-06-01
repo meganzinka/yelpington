@@ -6,10 +6,14 @@ import {
 } from "react-leaflet";
 import {useState} from "react"
 import MyComponent from "./MyComponent.js";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import L, { Tooltip } from 'leaflet'
+
 
 function Map(props) {
   const [center, setCenter] = useState([42.05217724328756, -70.18468681413914]);
+  const [restaurantId, setRestaurantId] = useState();
+  const {pathname} = props.location;
   if (props.data) {
     return (
       <MapContainer
@@ -18,6 +22,7 @@ function Map(props) {
         zoomControl={false}
         touchZoom={false}
         style={{ height: "600px", width: "600px" }}
+        id="map-container" 
       >
         <TileLayer
       url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
@@ -26,19 +31,25 @@ function Map(props) {
         />
         {props.data.map((obj, index) => {
           return (
-            <div id="map-container" key={index}>
-              {/* Create a marker at the restaurant's location  */}
-              <Marker position={[obj.lat, obj.long]}>
-                {/* Create a popup that links to the restaurant's page */}
-                <Popup>
-                  <Link
+            <div id="marker" key={index}>
+              <Marker position={[obj.lat, obj.long]} style ={{"backgroundColor" :"red"}}
+                  eventHandlers={{
+                    click: e => setRestaurantId(pathname)
+                  }}
+              >
+              
+                {restaurantId === pathname && <Popup position={[obj.lat, obj.long]}>
+                  {/* <Link
                     key = {index}
                     to={`/${obj.id}`}
-                  >
-                    {/* label each link with the restaurant's name */}
-                    {obj.name}
-                  </Link>
-                </Popup>
+                  > */}
+                  <center>
+                    <h3>{obj.name} </h3>
+                  {/* </Link> */}
+                  {obj.address}
+                  </center>
+                </Popup>}
+
               </Marker>
             </div>
           );
@@ -52,4 +63,4 @@ function Map(props) {
   } else return null;
 }
 
-export default Map;
+export default withRouter(Map);
