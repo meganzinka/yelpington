@@ -7,16 +7,7 @@ import L, { Tooltip } from "leaflet";
 function Map(props) {
   const [center, setCenter] = useState([42.05217724328756, -70.18468681413914]);
   const [restaurantId, setRestaurantId] = useState();
-  const [style, setStyle] = useState()
-  const { innerWidth: width} = window;
-  console.log(width)
   const { pathname } = props.location;
-
-  useEffect(() => {
-    if (window > 600) {
-      setStyle({height: "600px", width: "600px"})
-    } else (setStyle({height: "50vh", width: "100vw"}))
-  }, [window])
   if (props.data) {
     return (
       <MapContainer
@@ -24,7 +15,6 @@ function Map(props) {
         zoom={15}
         zoomControl={false}
         touchZoom={false}
-        // style={{height: "600px", width: "600px"}}
         id="map-container"
       >
         <TileLayer

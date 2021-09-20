@@ -303,10 +303,7 @@ a {
 
 /*----------------Map ------------------------*/
 /*specify map dimensions*/
-/* #mapid {
-  height: 180px;
-  display: flex;
-} */
+
 
 @media only screen and (max-width: 600px) {
   html {
@@ -315,7 +312,7 @@ a {
   #app-container {
     display: grid;
     grid-template-columns: 100vw;
-    grid-template-rows: auto 50vh auto auto;
+    grid-template-rows: auto 40vh auto auto;
   }
   #main-header {
     text-align: center;
@@ -400,7 +397,7 @@ a {
     grid-row: 2;
     border-radius: 10px;
     margin: 0.5vh 2vw;
-    height: 50vh;
+    height: 40vh;
     width: 96vw;
   }
 
