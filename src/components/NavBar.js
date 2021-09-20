@@ -4,7 +4,7 @@ import { Link} from "react-router-dom";
 export default function NavBar(props) {
   if (props.data) {
     return (
-      <div>
+      <div id="nav-bar-container">
           {props.data.map((obj, index) => {
             if (obj.id === props.currentRestaurant) {
             return (

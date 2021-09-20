@@ -109,7 +109,7 @@ const Restaurant = (props) => {
 
         <div className="restaurant-component">
           <div id="comment-header">
-          <h4>Reviews:</h4>
+          Reviews:
           </div>
           <div id = "row-2">
           <ul>

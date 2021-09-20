@@ -68,18 +68,17 @@ function App() {
       </header>
 
       <div id="app-container">
-        <div id="nav-bar-container">
           <NavBar
             data={data}
             restaurantList={restaurantList}
             currentRestaurant={currentRestaurant}
           />
-        </div>
         <div id="mapid">
           {data ? (
             <Route
               //path="/"
               render={(props) => (
+                <div id="map-component-wrapper">
                 <Map
                   restaurantList={restaurantList}
                   newZoom={newZoom}
@@ -87,6 +86,7 @@ function App() {
                   //match={props.match}
                   data={data}
                 />
+                </div>
               )}
             />
           ) : null}

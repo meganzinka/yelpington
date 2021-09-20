@@ -28,21 +28,6 @@
         "long": -70.17417038026709
     },
     {
-        "id": "far-land-provisions",
-        "name": "Far Land Provisions",
-        "address": "150 Bradford St.",
-        "phone number": "(508) 487-0045",
-        "hours": "8:00 AM - 5:00 PM",
-        "notes": [
-            "American, Cafe, Vegetarian Friendly, Vegan Options, Gluten Free Options",
-            "Massachusetts favorite corner store & deli featuring on-site bakery, prepared foods, and made to order breakfast and lunch sandwiches",
-            "Providing full-service catering for weddings, special events, and cocktail parties.",
-            "Check out our seasonal outpost at Herring Cove Beach that features fresh and innovative offerings in a one of a kind beach setting"
-        ],
-        "lat": 42.05495473426212,
-        "long": -70.18481221545382
-    },
-    {
         "id": "jimmy's-hideaway",
         "name": "Jimmy's Hideaway",
         "address": "179 Commercial St Unit 1",
@@ -100,6 +85,21 @@
         ],
         "lat": 42.05294297233715,
         "long": -70.18464385222951
+    },
+    {
+        "id": "far-land-provisions",
+        "name": "Far Land Provisions",
+        "address": "150 Bradford St.",
+        "phone number": "(508) 487-0045",
+        "hours": "8:00 AM - 5:00 PM",
+        "notes": [
+            "American, Cafe, Vegetarian Friendly, Vegan Options, Gluten Free Options",
+            "Massachusetts favorite corner store & deli featuring on-site bakery, prepared foods, and made to order breakfast and lunch sandwiches",
+            "Providing full-service catering for weddings, special events, and cocktail parties.",
+            "Check out our seasonal outpost at Herring Cove Beach that features fresh and innovative offerings in a one of a kind beach setting"
+        ],
+        "lat": 42.05495473426212,
+        "long": -70.18481221545382
     },
     {
         "id": "the-mews-restaurant-and-cafe",
